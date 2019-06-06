@@ -1,0 +1,18 @@
+<div class="container border border-dark rounded-lg">
+  <div class="row">
+    <div class="movie-poster col-3">
+        <img class="rounded float-right" src="{{movie.poster}}" />
+    </div>
+    <div class="movie-info col-9">
+      <h4 [textContent]="movie.title | uppercase"></h4>
+      <ul>
+        <li><span class="title">Réalisateur(s) : </span><span *ngFor="let director of movie.directors; first as isFirst">{{isFirst ? '' : ','}} {{director}}</span></li>
+        <li><span class="title">Acteur(s) : </span><span  *ngFor="let actor of movie.actors; first as isFirst">{{isFirst ? '' : ','}} {{actor}}</span></li>
+        <li><span class="title">Genre(s) : </span><span *ngFor="let genre of movie.genres; first as isFirst">{{isFirst ? '' : ','}} {{genre}}</span></li>
+        <li *ngIf="movie.synopsis"><span class="title">Synopsis : </span><br />
+          <p class="synopsis">{{movie.synopsis | truncate: 400}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
